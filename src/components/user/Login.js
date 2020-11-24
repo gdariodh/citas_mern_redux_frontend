@@ -1,28 +1,48 @@
 import { Link } from "react-router-dom";
+// hook que lee los datos del formulario y que trabajara en conjunto con userAction redux
+import useLogin from "../../hooks/useLogin";
+// alert component
+import Alert from "../alert/Alert";
 
 const Login = () => {
+  // custom hook - lee datos
+  const { formik, values, handleChange, handleSubmit, handleBlur } = useLogin();
+
+  // extraer los initialvalues de formik que definimos
+  const { data, password } = values;
   return (
     <>
-      <Link to="/">
-        <img
-          className="h-24 mx-auto mt-6 xl:mt-3 md:mt-32"
-          src="https://www.flaticon.es/svg/static/icons/svg/3768/3768079.svg"
-          alt="icon login"
-        />
-      </Link>
-
+      <img
+        className="h-24 mx-auto mt-6 xl:mt-3 md:mt-32"
+        src="https://www.flaticon.es/svg/static/icons/svg/3768/3768079.svg"
+        alt="icon login"
+      />
+     
       <h2 className="text-center text-3xl font-bold">Log in</h2>
-      <div className="flex justify-center xl:mt-2 container mx-auto">
-        <form className="bg-white w-full md:w-5/12 px-8 pt-6 pb-8 mb-1">
+      <Alert />
+      <div className="flex justify-center mt-2 container mx-auto">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white w-full md:w-5/12 px-8 py-6"
+        >
           <div className=" mb-4">
-            <label className="block text-gray-600 mb-2" htmlFor="email">
+            <label className="block text-gray-600 mb-2" htmlFor="data">
               Email o usuario
             </label>
+            {/** TODO: el htmlFor, id y values de los inputs se llaman data porque se ingresa un correo o un usuario */}
             <input
-              type="email"
-              id="email"
+              value={data}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              type="text"
+              id="data"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-400 focus:shadow-outline"
             />
+            {formik.touched.data && formik.errors.data && (
+              <div className="my-1 text-red-500  ">
+                <span className="font-semibold">{formik.errors.data}</span>
+              </div>
+            )}
           </div>
 
           <div className="mb-4">
@@ -30,10 +50,18 @@ const Login = () => {
               Password
             </label>
             <input
+              value={password}
+              onChange={handleChange}
+              onBlur={handleBlur}
               type="password"
               id="password"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-400 focus:shadow-outline"
             />
+            {formik.touched.password && formik.errors.password && (
+              <div className="my-1 text-red-500  ">
+                <span className="font-semibold">{formik.errors.password}</span>
+              </div>
+            )}
           </div>
           <input
             type="submit"
