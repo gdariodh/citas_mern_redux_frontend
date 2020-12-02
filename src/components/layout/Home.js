@@ -12,7 +12,7 @@ const Home = () => {
         {/** TODO: BANNER */}
         <Link to="/">
           <img
-            className="h-48 animate__animated animate__fadeInDown animate__fast"
+            className="h-48 animate__animated animate__fadeInDown"
             src="https://www.flaticon.es/svg/static/icons/svg/2026/2026519.svg"
             alt="icon home"
           />

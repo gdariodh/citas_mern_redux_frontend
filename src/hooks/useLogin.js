@@ -3,7 +3,7 @@ import * as Yup from "yup";
 // redux
 import { useDispatch } from "react-redux";
 // actions redux
-import { signUp } from "../actions/userActions";
+import { login } from "../actions/userActions";
 
 const useSignup = () => {
   // llamamos al useDispatch para poder acceder al action que se llevara los datos del formulario.
@@ -24,7 +24,7 @@ const useSignup = () => {
     }),
     onSubmit: (values) => {
       //console.log(values) - pasamos los values al action signUp, para poder pasarlo tienes que llamar dispatch(action())
-      dispatch(signUp(values));
+      dispatch(login(values));
     },
   });
 

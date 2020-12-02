@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   selectDate,
   deleteDate,
   handleLikes,
   handleDislikes,
-} from "../../actions/dateActions";
+} from "../../../../actions/dateActions";
 // icons de like y dislike
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 const DatePreview = ({ date }) => {
@@ -53,7 +52,7 @@ const DatePreview = ({ date }) => {
                   Eliminar
                 </button>
 
-              {/** TODO: date.favorite viene del backend, como boolean, el componente se vuelve a cargar por el padre ListDates
+                {/** TODO: date.favorite viene del backend, como boolean, el componente se vuelve a cargar por el padre ListDates
               que se actualiza por datesFavs que se altera cuando se da like o dislike gracias al dispatch
                */}
 
