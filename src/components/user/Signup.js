@@ -1,23 +1,22 @@
 import { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
+// components
+import Alert from "../alert/Alert";
 // hook que lee los datos del formulario y que trabajara en conjunto con userAction redux
 import useSignup from "../../hooks/useSignup";
-// alert component
-import Alert from "../alert/Alert";
 // redux
 import { useSelector } from "react-redux";
 
 const SignUp = () => {
+  const history = useHistory();
+
   // acceder state redux de user para luego usarlo en un useEffect para detectar cuando se registro y hacer redirect a /dates
   const userSignup = useSelector((state) => state.user.signup);
-  // redirect
-  const history = useHistory();
 
   useEffect(() => {
     // revisa cuando userSignup este true para hacer la redireccion, este solo es true cuando se crea el usuario con exito.
-    if (userSignup) {
-      setTimeout(() => history.push("/dates"), 2000);
-    }
+    if (userSignup) setTimeout(() => history.push("/dates"), 2000);
+    // eslint-disable-next-line
   }, [userSignup]);
 
   // custom hook - lee datos

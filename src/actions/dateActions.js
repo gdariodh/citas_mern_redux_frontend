@@ -148,12 +148,12 @@ export function getDatesByCategory(data) {
       const res = await clientAxios(`/api/dates-filter/category/${data}`);
       dispatch(datesByCategorySuccess(res.data.dates));
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       dispatch(datesByCategoryError(error.response.data.msg));
+      setTimeout(() => {
+        dispatch(hideAlert());
+      }, 2000);
     }
-    setTimeout(() => {
-      dispatch(hideAlert());
-    }, 2000);
   };
 }
 
@@ -217,7 +217,7 @@ export function getDatesFavs() {
       const res = await clientAxios("/api/dates-filter/likes");
       dispatch(getFavSuccess(res.data.dates));
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       dispatch(getFavError(error.response.data.msg));
     }
   };

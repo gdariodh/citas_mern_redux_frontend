@@ -1,14 +1,16 @@
-// librerias
+import { Link } from "react-router-dom";
+// icons
 import {
   AiFillPlusCircle,
   AiFillHeart,
   AiOutlineSearch,
   AiOutlineRollback,
 } from "react-icons/ai";
-import { Link } from "react-router-dom";
 // redux
 import { useSelector } from "react-redux";
+
 const Aside = ({ create, edit, view, fav, category }) => {
+  // acceder state redux
   const user = useSelector((state) => state.user.user);
 
   return (
@@ -34,7 +36,7 @@ const Aside = ({ create, edit, view, fav, category }) => {
           </div>
 
           {/** TODO: Botones */}
-          
+
           <div className="flex justify-center flex-wrap md:grid md:place-items-center md:mx-auto  mt-8 md:mt-16">
             {(view || category || fav) && (
               <Link to="/dates" className="flex  focus:outline-none my-2">
@@ -64,10 +66,7 @@ const Aside = ({ create, edit, view, fav, category }) => {
             ) : null}
 
             {!fav && (
-              <Link
-                to="/dates-favs"
-                className="flex  focus:outline-none my-2"
-              >
+              <Link to="/dates-favs" className="flex  focus:outline-none my-2">
                 <span className="mr-1 font-semibold text-xl">
                   Citas favoritas
                 </span>{" "}

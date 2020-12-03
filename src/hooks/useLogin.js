@@ -12,15 +12,15 @@ const useSignup = () => {
   // validaciones
   const formik = useFormik({
     initialValues: {
-    // data porque se ingresa o un correo o un usuario
-      data:"",
+      // data porque se ingresa o un correo o un usuario
+      data: "",
       password: "",
     },
     validationSchema: Yup.object({
-      data: Yup.string().required('Debes ingresar un email o un usuario'),
+      data: Yup.string().required("Debes ingresar un email o un usuario"),
       password: Yup.string()
         .required("El password es obligatorio")
-        .min(8, "Debe tener al menos 8 caracteres")
+        .min(8, "Debe tener al menos 8 caracteres"),
     }),
     onSubmit: (values) => {
       //console.log(values) - pasamos los values al action signUp, para poder pasarlo tienes que llamar dispatch(action())

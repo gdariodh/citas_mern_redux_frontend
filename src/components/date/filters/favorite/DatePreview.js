@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
+// icons de like y dislike
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+// redux
 import { useDispatch } from "react-redux";
 import {
   selectDate,
   handleLikes,
   handleDislikes,
 } from "../../../../actions/dateActions";
-// icons de like y dislike
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+
 const DatePreview = ({ date }) => {
   const dispatch = useDispatch();
 
@@ -18,7 +20,7 @@ const DatePreview = ({ date }) => {
           <div className="md:flex  md:my-4 m-4 w-full   lg:w-2/5	 h-64">
             <div className="w-full px-4 py-4 bg-white rounded-lg">
               <div className="flex items-center">
-                <h2 className="text-xl text-gray-800 font-medium mr-auto max-h-6 overflow-hidden">
+                <h2 className="text-xl text-gray-800 font-medium mr-auto max-h-7 overflow-hidden">
                   {date.name}
                 </h2>
 
@@ -27,20 +29,20 @@ const DatePreview = ({ date }) => {
                 </p>
               </div>
 
-              <p className="text-sm text-gray-700 mt-4 max-h-12 overflow-hidden	 ">
-                cliente: {date.client}
-              </p>
-
-              <p className="text-sm text-gray-700 mt-4 max-h-5 overflow-hidden		 ">
+              <p className="text-sm text-gray-700 mt-4 max-h-5 overflow-hidden">
                 {date.description}
               </p>
 
-              <p className="text-sm text-gray-700 mt-4 max-h-12 overflow-hidden	 ">
-                Fecha de la cita: {date.date}
+              <p className="text-sm text-gray-700 mt-4 max-h-5 overflow-hidden">
+                <span className="font-semibold">Cliente:</span> {date.client}
               </p>
 
-              <p className="text-sm text-gray-700 mt-4 max-h-12 overflow-hidden	 ">
-                Hora de la cita: {date.date}
+              <p className="text-sm text-gray-700 mt-4 max-h-5 overflow-hidden">
+                <span className="font-semibold">Fecha:</span> {date.date}
+              </p>
+
+              <p className="text-sm text-gray-700 mt-4 max-h-5 overflow-hidden	 ">
+                <span className="font-semibold">Hora:</span> {date.hour}
               </p>
 
               <div className="flex items-center justify-end mt-4 md:my-4 top-auto">
@@ -65,9 +67,10 @@ const DatePreview = ({ date }) => {
                 )}
 
                 <Link
-                 to='/date' 
-                 onClick={() => dispatch(selectDate(date))}
-                 className=" bg-blue-500 hover:bg-blue-600  text-gray-200 px-2 py-2 rounded-md ">
+                  to="/date"
+                  onClick={() => dispatch(selectDate(date))}
+                  className=" bg-blue-500 hover:bg-blue-600  text-gray-200 px-2 py-2 rounded-md "
+                >
                   Ver mas
                 </Link>
               </div>

@@ -1,57 +1,49 @@
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 // components
 import DatePreview from "./DatePreview";
 import Aside from "./Layout/Aside";
 import Header from "./Layout/Header";
-import { useEffect } from "react";
-// component de error401
 import Error401 from "../alert/Error401";
-// redux actions
-import { userAuth } from "../../actions/userActions";
-import { getDates } from "../../actions/dateActions";
 // redux acceder a funciones y state
 import { useDispatch, useSelector } from "react-redux";
-import {Link} from 'react-router-dom'
+// actions
+import { userAuth } from "../../actions/userActions"; // verifica el token y otorga el permiso o no para las rutas protegidas
+import { getDates } from "../../actions/dateActions";
 
 const ListDates = () => {
-  // para poder acceder al action
+  // para poder ejecutar actions
   const dispatch = useDispatch();
-  // acceder al state central de user
+  // acceder al state redux
   const userState = useSelector((state) => state.user);
   const { auth, user, logout } = userState;
-  const dates = useSelector((state) => state.date.dates);
-  const favs = useSelector((state) => state.date.favs);
-  // reload se activa cuando se elimina una cita por lo que useEffect se repite cuando reload sea true
-  const reload = useSelector((state) => state.date.reload);
+  const dateState = useSelector((state) => state.date);
+  const { dates, favs, reload } = dateState;
+  // reload es true cuando se elimina una cita con exito
 
   useEffect(() => {
-    // action que revisa si el usuario esta autenticado
-    if (!logout) dispatch(userAuth());
-    // si el usuario esta autenticado, obten las citas
-    if (auth) {
-      dispatch(getDates());
-    }
-
-    /* TODO: favs proviene de un action que tiene el children DatePreview 
-    cuando le da like o dislike se modifica el favs en el reducer*/
-
+    // TODO: condiciones para que no cicle el userAuth
+    if (!logout && !auth && !user) dispatch(userAuth());
+    if (auth) dispatch(getDates());
     // eslint-disable-next-line
-  }, [auth, logout, reload, favs]);
+  }, [auth, reload, favs]);
+
+  // favs va cambiando cuando el usuario da like o dislike a la cita
 
   return (
     <>
-      {/** TODO: auth sirve para proteger los componentes, ya que auth solo se activa cuando hay un autenticacion exitosa */}
+      {/** TODO: auth es true cuando userAuth ha sido exitoso*/}
 
       {auth && user ? (
         <>
-          {/** Distribucion de flex */}
           <div className="flex md:flex-row flex-col ">
             {/** Barra lateral de usuario*/}
             <Aside />
             <div className="w-full bg-gradient-to-t from-blue-300 to-blue-400">
               {/** Header */}
               <Header />
-              {/** Citas */}
-              <div className="flex flex-wrap md:justify-evenly md:px-6 animate__animated animate__fadeIn animate__fast">
+              {/** Listado de citas */}
+              <div className="flex flex-wrap pt-10 pb-32 md:py-0 md:justify-evenly md:px-6 animate__animated animate__fadeIn animate__fast">
                 {dates.length !== 0 ? (
                   dates.map((date, i) => (
                     <DatePreview key={`${date._id}-${i}`} date={date} />
@@ -66,14 +58,13 @@ const ListDates = () => {
                         </h2>
                       </div>
                       <div className="py-5 px-10">
-                      <Link to='/create-date'> 
-                      <img
-                          className="h-32 w-32 animate__animated animate__fadeInDown"
-                          src="https://www.flaticon.es/svg/static/icons/svg/1828/1828817.svg"
-                          alt="icon space"
-                        />
-                      </Link>
-                        
+                        <Link to="/create-date">
+                          <img
+                            className="h-32 w-32 animate__animated animate__fadeInDown"
+                            src="https://www.flaticon.es/svg/static/icons/svg/1828/1828817.svg"
+                            alt="icon space"
+                          />
+                        </Link>
                       </div>
                     </div>
                   </>
@@ -84,7 +75,7 @@ const ListDates = () => {
         </>
       ) : (
         <>
-          {/** TODO: Componente que se muestra si token no es valido */}
+          {/** TODO: Token no valido o permiso denegado */}
           <Error401 />
         </>
       )}

@@ -1,48 +1,45 @@
+import { useEffect } from "react";
 // components
 import DatePreview from "./DatePreview";
 import Aside from "../../Layout/Aside";
 import Header from "../../Layout/Header";
-import { useEffect } from "react";
-// component de error401
 import Error401 from "../../../alert/Error401";
-// redux actions
+// redux
+import { userAuth } from "../../../../actions/userActions";
 import { getDatesFavs } from "../../../../actions/dateActions";
-// redux acceder a funciones y state
 import { useDispatch, useSelector } from "react-redux";
 
 const ListDates = () => {
-  // para poder acceder al action
   const dispatch = useDispatch();
-  const dates = useSelector((state) => state.date.datesFavs);
-  const favs = useSelector((state) => state.date.favs);
+
+  // acceder state redux
+  const userState = useSelector((state) => state.user);
+  const { auth, user, logout } = userState;
+  const dateState = useSelector((state) => state.date);
+  const { datesFavs, reload } = dateState;
   const alertState = useSelector((state) => state.alert);
   const { alertFav, alertMsgFav } = alertState;
 
   useEffect(() => {
-    dispatch(getDatesFavs());
-
+    if (!logout && !auth && !user) dispatch(userAuth());
+    if (auth || reload) dispatch(getDatesFavs());
     // eslint-disable-next-line
-  }, [favs, alertFav]);
+  }, [auth, reload]);
 
   return (
     <>
-      {/** TODO: auth sirve para proteger los componentes, ya que auth solo se activa cuando hay un autenticacion exitosa */}
-
-      <>
-        {/** Distribucion de flex */}
+      {auth && user ? (
         <div className="flex md:flex-row flex-col ">
-          {/** Barra lateral de usuario*/}
-          <Aside fav/>
+          <Aside fav />
           <div className="w-full bg-gradient-to-t from-blue-300 to-blue-400">
-            {/** Header */}
             <Header />
             <h2 className="text-white text-2xl md:text-3xl mt-4 font-bold text-center ">
               Favoritas
             </h2>
-            {/** Citas */}
-            <div className="flex flex-wrap md:justify-evenly md:px-6 ">
-              {dates.length !== 0 && !alertFav ? (
-                dates.map((date, i) => (
+            {/** TODO: Listado citas favoritas */}
+            <div className="flex pt-10 pb-32 md:py-0 flex-wrap md:justify-evenly md:px-6 ">
+              {datesFavs.length !== 0 && !alertFav ? (
+                datesFavs.map((date, i) => (
                   <DatePreview key={`${date._id}-${i}`} date={date} />
                 ))
               ) : (
@@ -55,7 +52,9 @@ const ListDates = () => {
             </div>
           </div>
         </div>
-      </>
+      ) : (
+        <Error401 />
+      )}
     </>
   );
 };

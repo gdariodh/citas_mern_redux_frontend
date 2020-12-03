@@ -22,9 +22,9 @@ import {
 const initialState = {
   dates: [],
   redirect: false,
-  reload: true,
+  reload: false,
   dateSelect: {},
-  favs:[],
+  favs: [],
   datesFavs: [],
   datesCategory: [],
 };
@@ -80,21 +80,26 @@ export default function dateReducer(state = initialState, action) {
     case DATES_LIKES_SUCCESS:
       return {
         ...state,
-        favs: [action.payload,...state.favs],
+        favs: [action.payload, ...state.favs],
+        reload: true,
       };
 
     case DATES_DISLIKES_SUCCESS:
       return {
         ...state,
         favs: [state.favs.filter((date) => date._id !== action.payload._id)],
-        datesFavs: [state.datesFavs.filter((date) => date._id !== action.payload._id)]
+        datesFavs: [
+          state.datesFavs.filter((date) => date._id !== action.payload._id),
+        ],
+        reload: true,
       };
 
     case GET_DATES_LIKES_SUCCESS:
-      return{
+      return {
         ...state,
-        datesFavs: action.payload
-      }  
+        datesFavs: action.payload,
+        reload: false,
+      };
 
     case GET_DATES_ERROR:
     case CREATE_DATE_ERROR:
@@ -110,7 +115,7 @@ export default function dateReducer(state = initialState, action) {
         reload: false,
         dateSelect: {},
         datesFavs: [],
-        favs:[],
+        favs: [],
         datesCategory: [],
       };
 
@@ -118,10 +123,10 @@ export default function dateReducer(state = initialState, action) {
       return {
         ...state,
         dates: [],
-        reload: true,
+        reload: false,
         dateSelect: {},
         datesFavs: [],
-        datesFavs: [],
+        favs: [],
         datesCategory: [],
         redirect: false,
       };

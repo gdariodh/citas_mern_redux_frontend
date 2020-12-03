@@ -1,25 +1,28 @@
+import { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
+// icons
 import { HiOutlineLogout } from "react-icons/hi";
+// redux
 import { useDispatch, useSelector } from "react-redux";
 import { logOut, clearState } from "../../../actions/userActions";
-import { useEffect } from "react";
 
 const Header = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
 
+  // acceder state redux
   const logout = useSelector((state) => state.user.logout);
-  const history = useHistory();
 
   useEffect(() => {
     if (logout) {
       history.push("/");
       dispatch(clearState());
     }
+    // eslint-disable-next-line
   }, [logout]);
 
   return (
     <>
-      {/** TODO: header */}
       <header className=" bg-white border-b md:border-l border-gray-300  p-3 flex justify-between items-center">
         <Link to="/dates">
           <span className="text-xl font-bold">Citas</span>

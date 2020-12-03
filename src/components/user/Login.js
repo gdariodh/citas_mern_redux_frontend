@@ -1,30 +1,30 @@
 import { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
+// components
+import Alert from "../alert/Alert";
 // hook que lee los datos del formulario y que trabajara en conjunto con userAction redux
 import useLogin from "../../hooks/useLogin";
-// alert component
-import Alert from "../alert/Alert";
 // redux state
 import { useSelector } from "react-redux";
 
 const Login = () => {
+  const history = useHistory();
+
+  // obtener login state de user
+  const login = useSelector((state) => state.user.login);
+
+  useEffect(() => {
+    // login solo se activa cuando hay login exitoso, por lo que revisa cuando sea true y hace redirect
+    if (login) setTimeout(() => history.push("/dates"), 2000);
+    // eslint-disable-next-line
+  }, [login]);
+
   // custom hook - lee datos
   const { formik, values, handleChange, handleSubmit, handleBlur } = useLogin();
 
   // extraer los initialvalues de formik que definimos
   const { data, password } = values;
 
-  const history = useHistory();
-  // obtener login state de user
-  const login = useSelector((state) => state.user.login);
-
-  useEffect(() => {
-    // login solo se activa cuando hay login exitoso, por lo que revisa cuando sea true y hace redirect
-    if (login) {
-      setTimeout(() => history.push("/dates"), 2000);
-    }
-     // eslint-disable-next-line
-  }, [login]);
   return (
     <>
       <img

@@ -1,4 +1,4 @@
-// user
+// User
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const SIGNUP_ERROR = "SIGNUP_ERROR";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -7,7 +7,7 @@ export const AUTH_SUCCESS = "AUTH_SUCCESS";
 export const AUTH_ERROR = "AUTH_ERROR";
 export const LOGOUT = "LOGOUT";
 
-// date crud
+// Date Crud
 export const CREATE_DATE_SUCCESS = "CREATE_DATE_SUCCESS";
 export const CREATE_DATE_ERROR = "CREATE_DATE_ERROR";
 export const GET_DATES_SUCCESS = "GET_DATES_SUCCESS";
@@ -18,19 +18,19 @@ export const EDIT_DATA_ERROR = "EDIT_DATA_ERROR";
 export const DELETE_DATE_SUCCESS = "DELETE_DATE_SUCCESS";
 export const DELETE_DATE_ERROR = "DELETE_DATE_ERROR";
 
-// date filtros
+// Date Filtros
 export const DATES_FILTER_SUCCESS = "DATES_FILTER_SUCCESS";
 export const DATES_FILTER_ERROR = "DATES_FILTER_ERROR";
 
-// likes
+// Likes
 export const DATES_LIKES_SUCCESS = "DATES_LIKES_SUCCESS";
 export const DATES_DISLIKES_SUCCESS = "DATES_DISLIKES_SUCCESS";
 export const DATES_DISLIKES_ERROR = "DATES_DISLIKES_ERROR";
 export const GET_DATES_LIKES_SUCCESS = "GET_DATES_LIKES_SUCCESS";
 export const GET_DATES_LIKES_ERROR = "GET_DATES_LIKES_ERROR";
 
-// alert
+// Alert
 export const HIDE_ALERT = "HIDE_ALERT";
 
-// limpiar state
+// Limpiar state
 export const CLEAR_STATE = "CLEAR_STATE";

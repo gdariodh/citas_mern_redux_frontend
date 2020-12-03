@@ -1,10 +1,9 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 // redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // actions redux
 import { editDate } from "../actions/dateActions";
-import { useSelector } from "react-redux";
 
 const useDate = () => {
   const dispatch = useDispatch();
