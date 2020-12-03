@@ -64,7 +64,7 @@ const ListDates = () => {
                   Hora de la cita: {dateSelect.hour}
                 </p>
 
-                <div className="flex items-center justify-end md:my-4 top-auto">
+                <div className="flex items-center justify-end mt-4 md:my-4 top-auto">
                   <button
                     onClick={() => dispatch(deleteDate(dateSelect._id))}
                     className="bg-white text-red-500 focus:outline-none hover:text-red-600 px-4 py-2 rounded mr-auto hover:underline"

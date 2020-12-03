@@ -10,6 +10,7 @@ import { userAuth } from "../../actions/userActions";
 import { getDates } from "../../actions/dateActions";
 // redux acceder a funciones y state
 import { useDispatch, useSelector } from "react-redux";
+import {Link} from 'react-router-dom'
 
 const ListDates = () => {
   // para poder acceder al action
@@ -56,7 +57,26 @@ const ListDates = () => {
                     <DatePreview key={`${date._id}-${i}`} date={date} />
                   ))
                 ) : (
-                  <p>No hay citas, crea una </p>
+                  <>
+                    {/** TODO: Si no hay citas */}
+                    <div className="flex flex-wrap w-full md:w-1/2 justify-center items-center">
+                      <div className="px-10 py-20 ">
+                        <h2 className="text-white text-3xl mt-4 font-bold text-center ">
+                          No hay citas, crea una para empezar.
+                        </h2>
+                      </div>
+                      <div className="py-5 px-10">
+                      <Link to='/create-date'> 
+                      <img
+                          className="h-32 w-32 animate__animated animate__fadeInDown"
+                          src="https://www.flaticon.es/svg/static/icons/svg/1828/1828817.svg"
+                          alt="icon space"
+                        />
+                      </Link>
+                        
+                      </div>
+                    </div>
+                  </>
                 )}
               </div>
             </div>

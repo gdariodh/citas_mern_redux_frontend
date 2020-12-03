@@ -34,9 +34,10 @@ const Aside = ({ create, edit, view, fav, category }) => {
           </div>
 
           {/** TODO: Botones */}
+          
           <div className="flex justify-center flex-wrap md:grid md:place-items-center md:mx-auto  mt-8 md:mt-16">
             {(view || category || fav) && (
-              <Link to="/dates" className="flex  focus:outline-none mb-4">
+              <Link to="/dates" className="flex  focus:outline-none my-2">
                 <span className="mr-1 font-semibold text-xl">
                   Volver a citas
                 </span>{" "}
@@ -45,7 +46,7 @@ const Aside = ({ create, edit, view, fav, category }) => {
             )}
 
             {!create && !edit && (
-              <Link to="/create-date" className="flex  focus:outline-none">
+              <Link to="/create-date" className="flex  focus:outline-none my-2">
                 <span className="mr-1 font-semibold text-xl">
                   Agregar una cita
                 </span>{" "}
@@ -54,7 +55,7 @@ const Aside = ({ create, edit, view, fav, category }) => {
             )}
 
             {create || edit ? (
-              <Link to="/dates" className="flex  focus:outline-none">
+              <Link to="/dates" className="flex   focus:outline-none my-2">
                 <span className="mr-1 font-semibold text-xl">
                   Volver a citas
                 </span>{" "}
@@ -65,7 +66,7 @@ const Aside = ({ create, edit, view, fav, category }) => {
             {!fav && (
               <Link
                 to="/dates-favs"
-                className="flex md:mt-4 md:m-0 m-4 font-semibold text-xl focus:outline-none"
+                className="flex  focus:outline-none my-2"
               >
                 <span className="mr-1 font-semibold text-xl">
                   Citas favoritas
@@ -77,7 +78,7 @@ const Aside = ({ create, edit, view, fav, category }) => {
             {!category && (
               <Link
                 to="/dates-category"
-                className="flex md:mt-4 font-semibold text-xl focus:outline-none"
+                className="flex focus:outline-none my-2"
               >
                 <span className="mr-1 font-semibold text-xl">
                   Filtrar citas

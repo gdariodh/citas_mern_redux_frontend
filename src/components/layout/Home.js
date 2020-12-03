@@ -29,9 +29,9 @@ const Home = () => {
         </div>
 
         <div className="flex flex-wrap w-full xl:mt-4 mt-10 md:mt-0">
-          <p className="text-sm font-bold text-gray-800 pt-6 mx-auto md:m-0 order-1 md:order-none">
+          <h1 className="text-sm font-bold text-gray-800 pt-6 mx-auto md:m-0 order-1 md:order-none">
             Citas Mern - Redux
-          </p>
+          </h1>
           {/** focus:outline-none es para quitar los border negros cuando le dan click al boton */}
           <button
             onClick={() => signUp()}

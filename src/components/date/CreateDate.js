@@ -35,7 +35,7 @@ const CreateDate = () => {
         <div className="flex flex-wrap md:justify-evenly md:px-6">
           {/** TODO: Crear cita form */}
           {!alert ? (
-            <h2 className="mx-auto text-white text-3xl font-bold my-4">
+            <h2 className="mx-auto text-white text-2xl md:text-3xl font-bold my-4">
               Crear cita
             </h2>
           ) : (

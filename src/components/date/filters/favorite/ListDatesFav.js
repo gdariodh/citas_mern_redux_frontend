@@ -36,7 +36,7 @@ const ListDates = () => {
           <div className="w-full bg-gradient-to-t from-blue-300 to-blue-400">
             {/** Header */}
             <Header />
-            <h2 className="text-white text-3xl mt-4 font-bold text-center ">
+            <h2 className="text-white text-2xl md:text-3xl mt-4 font-bold text-center ">
               Favoritas
             </h2>
             {/** Citas */}
@@ -47,7 +47,7 @@ const ListDates = () => {
                 ))
               ) : (
                 <div className="py-20 md:py-24 mx-auto w-1/2 md:w-full">
-                  <p className="text-white font-semibold text-2xl mx-auto text-center animate__animated animate__fadeInUp">
+                  <p className="text-white py-20 md:py-0 font-semibold text-2xl mx-auto text-center animate__animated animate__fadeInUp">
                     {alertMsgFav}
                   </p>
                 </div>

@@ -33,7 +33,7 @@ const DatePreview = ({ date }) => {
             Hora de la cita: {date.date}
           </p>
 
-          <div className="flex items-center justify-end md:my-4 top-auto">
+          <div className="flex items-center justify-end mt-4 md:my-4 top-auto">
             <Link
               onClick={() => dispatch(selectDate(date))}
               to="/edit-date"

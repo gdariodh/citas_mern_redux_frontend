@@ -43,10 +43,10 @@ const DatePreview = ({ date }) => {
                 Hora de la cita: {date.date}
               </p>
 
-              <div className="flex items-center justify-end md:my-4 top-auto">
+              <div className="flex items-center justify-end mt-4 md:my-4 top-auto">
                 <button
                   onClick={() => dispatch(deleteDate(date._id))}
-                  className="bg-white text-red-500 focus:outline-none hover:text-red-600 px-4 py-2 rounded mr-auto hover:underline"
+                  className="bg-white text-red-500 focus:outline-none hover:text-red-600 md:px-4 px-3 py-1 md:py-2  rounded mr-auto hover:underline"
                 >
                   Eliminar
                 </button>
@@ -58,14 +58,14 @@ const DatePreview = ({ date }) => {
                 {!date.favorite ? (
                   <button
                     onClick={() => dispatch(handleLikes(date))}
-                    className="flex  focus:outline-none p-2 mr-2"
+                    className="flex  focus:outline-none sm:p-2  mr-2"
                   >
                     <AiOutlineHeart className="w-6 h-6" />
                   </button>
                 ) : (
                   <button
                     onClick={() => dispatch(handleDislikes(date))}
-                    className="flex  focus:outline-none p-2 mr-2"
+                    className="flex  focus:outline-none sm:p-2  mr-2"
                   >
                     <AiFillHeart className="w-6 h-6" />
                   </button>
@@ -82,7 +82,7 @@ const DatePreview = ({ date }) => {
                 <Link
                   to="/date"
                   onClick={() => dispatch(selectDate(date))}
-                  className=" bg-blue-500 hover:bg-blue-600  text-gray-200 px-2 py-2 rounded-md "
+                  className=" bg-blue-500 hover:bg-blue-600  text-gray-200  px-2 py-2 rounded-md "
                 >
                   Ver mas
                 </Link>

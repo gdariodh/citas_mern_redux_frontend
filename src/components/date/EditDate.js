@@ -40,7 +40,7 @@ const EditDate = () => {
         <div className="flex flex-wrap md:justify-evenly md:px-6">
           {/** TODO: editar cita form */}
           {!alert ? (
-            <h2 className="mx-auto text-white text-3xl font-bold my-4">
+            <h2 className="mx-auto text-white text-2xl  md:text-3xl font-bold my-4">
               Editar cita
             </h2>
           ) : (

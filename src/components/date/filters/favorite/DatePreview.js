@@ -43,7 +43,7 @@ const DatePreview = ({ date }) => {
                 Hora de la cita: {date.date}
               </p>
 
-              <div className="flex items-center justify-end md:my-4 top-auto">
+              <div className="flex items-center justify-end mt-4 md:my-4 top-auto">
                 {/** TODO: date.favorite viene del backend, como boolean, el componente se vuelve a cargar por el padre ListDates
               que se actualiza por datesFavs que se altera cuando se da like o dislike gracias al dispatch
                */}
