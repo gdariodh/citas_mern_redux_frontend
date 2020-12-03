@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <div className="flex md:flex-row flex-col">
-      <div className="bg-blue-400 py-28 md:h-screen w-full flex items-center justify-center h-full order-1 md:order-none">
+      <div className="bg-gradient-to-t from-blue-300 to-blue-400 py-28 md:h-screen w-full flex items-center justify-center h-full order-1 md:order-none">
         {/** TODO: BANNER */}
         <Link to="/">
           <img

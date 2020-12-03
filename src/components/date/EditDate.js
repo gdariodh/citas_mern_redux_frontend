@@ -201,7 +201,7 @@ const EditDate = () => {
                 <input
                   type="submit"
                   className="bg-blue-500 hover:bg-blue-600 cursor-pointer w-full p-3 border rounded-full focus:outline-none text-white uppercase font-bold"
-                  value="crear cita"
+                  value="editar cita"
                 />
               </div>
             </form>

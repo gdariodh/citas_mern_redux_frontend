@@ -30,7 +30,8 @@ const ListDates = () => {
       dispatch(getDates());
     }
 
-    // TODO: datesFavs proviene de un action que tiene el children DatePreview cuando le da like o dislike se modifica el datesFavs
+    /* TODO: favs proviene de un action que tiene el children DatePreview 
+    cuando le da like o dislike se modifica el favs en el reducer*/
 
     // eslint-disable-next-line
   }, [auth, logout, reload, favs]);
@@ -45,7 +46,7 @@ const ListDates = () => {
           <div className="flex md:flex-row flex-col ">
             {/** Barra lateral de usuario*/}
             <Aside />
-            <div className="w-full bg-gradient-to-r from-blue-300  via-blue-300 to-blue-400">
+            <div className="w-full bg-gradient-to-t from-blue-300 to-blue-400">
               {/** Header */}
               <Header />
               {/** Citas */}

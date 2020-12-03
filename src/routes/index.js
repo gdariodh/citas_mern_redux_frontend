@@ -9,6 +9,7 @@ import Login from "../components/user/Login";
 import ListDates from "../components/date/ListDates";
 import CreateDate from "../components/date/CreateDate";
 import EditDate from "../components/date/EditDate";
+import DateView from "../components/date/DateView";
 // Filtros de citas
 import DatesCategory from "../components/date/filters/category/DatesCategory";
 import ListDatesFav from "../components/date/filters/favorite/ListDatesFav";
@@ -39,7 +40,9 @@ const Index = () => {
         <Route exact path="/dates" component={ListDates} />
 
         <Route exact path="/create-date" component={CreateDate} />
+        <Route exact path="/date" component={DateView} />
         <Route exact path="/edit-date" component={EditDate} />
+
         <Route exact path="/dates-category" component={DatesCategory} />
         <Route exact path="/dates-favs" component={ListDatesFav} />
 

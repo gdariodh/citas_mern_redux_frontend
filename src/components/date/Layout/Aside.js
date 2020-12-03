@@ -1,9 +1,14 @@
 // librerias
-import { AiFillPlusCircle, AiFillHeart, AiOutlineSearch,AiOutlineRollback } from "react-icons/ai";
+import {
+  AiFillPlusCircle,
+  AiFillHeart,
+  AiOutlineSearch,
+  AiOutlineRollback,
+} from "react-icons/ai";
 import { Link } from "react-router-dom";
 // redux
 import { useSelector } from "react-redux";
-const Aside = ({ create, edit }) => {
+const Aside = ({ create, edit, view, fav, category }) => {
   const user = useSelector((state) => state.user.user);
 
   return (
@@ -30,34 +35,56 @@ const Aside = ({ create, edit }) => {
 
           {/** TODO: Botones */}
           <div className="flex justify-center flex-wrap md:grid md:place-items-center md:mx-auto  mt-8 md:mt-16">
+            {(view || category || fav) && (
+              <Link to="/dates" className="flex  focus:outline-none mb-4">
+                <span className="mr-1 font-semibold text-xl">
+                  Volver a citas
+                </span>{" "}
+                <AiOutlineRollback className="w-8 h-8" />
+              </Link>
+            )}
+
             {!create && !edit && (
               <Link to="/create-date" className="flex  focus:outline-none">
-                <span className="mr-1 font-semibold text-xl">Agregar cita</span>{" "}
+                <span className="mr-1 font-semibold text-xl">
+                  Agregar una cita
+                </span>{" "}
                 <AiFillPlusCircle className="w-8 h-8" />
               </Link>
             )}
 
-            {
-              create || edit ?  <Link to="/dates" className="flex  focus:outline-none">
-                <span className="mr-1 font-semibold text-xl">Volver a citas</span>{" "}
+            {create || edit ? (
+              <Link to="/dates" className="flex  focus:outline-none">
+                <span className="mr-1 font-semibold text-xl">
+                  Volver a citas
+                </span>{" "}
                 <AiOutlineRollback className="w-8 h-8" />
               </Link>
-            : null}
+            ) : null}
 
-            <Link to='/dates-favs' className="flex md:mt-4 md:m-0 m-4 font-semibold text-xl focus:outline-none">
-              <span className="mr-1 font-semibold text-xl">
-                Citas favoritas
-              </span>{" "}
-              <AiFillHeart className="w-8 h-8" />
-            </Link>
+            {!fav && (
+              <Link
+                to="/dates-favs"
+                className="flex md:mt-4 md:m-0 m-4 font-semibold text-xl focus:outline-none"
+              >
+                <span className="mr-1 font-semibold text-xl">
+                  Citas favoritas
+                </span>{" "}
+                <AiFillHeart className="w-8 h-8" />
+              </Link>
+            )}
 
-            <Link
-              to="/dates-category"
-              className="flex md:mt-4 font-semibold text-xl focus:outline-none"
-            >
-              <span className="mr-1 font-semibold text-xl">Filtrar citas</span>{" "}
-              <AiOutlineSearch className="w-8 h-8" />
-            </Link>
+            {!category && (
+              <Link
+                to="/dates-category"
+                className="flex md:mt-4 font-semibold text-xl focus:outline-none"
+              >
+                <span className="mr-1 font-semibold text-xl">
+                  Filtrar citas
+                </span>{" "}
+                <AiOutlineSearch className="w-8 h-8" />
+              </Link>
+            )}
           </div>
         </div>
       </aside>

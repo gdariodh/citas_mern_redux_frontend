@@ -11,12 +11,12 @@ import { getDatesByCategory } from "../../../../actions/dateActions";
 const ListDatesCategory = () => {
   const dispatch = useDispatch();
   const dateAlert = useSelector((state) => state.date);
-  const { datesCategory,reload } = dateAlert;
+  const { datesCategory, reload } = dateAlert;
   const alertState = useSelector((state) => state.alert);
   const { alert, alertMsg } = alertState;
   const [spinner, setSpinner] = useState(false);
 
-  useEffect(() => {}, [datesCategory,reload]);
+  useEffect(() => {}, [datesCategory, reload]);
 
   const handleChange = (e) => {
     dispatch(getDatesByCategory(e.target.value));
@@ -28,7 +28,7 @@ const ListDatesCategory = () => {
     <>
       <div className="flex md:flex-row flex-col ">
         {/** Barra lateral de usuario*/}
-        <Aside />
+        <Aside category />
         <div className="w-full bg-gradient-to-t from-blue-300 to-blue-400">
           {/** Header */}
           <Header />

@@ -11,7 +11,6 @@ import {
   DATES_FILTER_SUCCESS,
   DATES_FILTER_ERROR,
   DATES_LIKES_SUCCESS,
-  DATES_LIKES_ERROR,
   DATES_DISLIKES_SUCCESS,
   DATES_DISLIKES_ERROR,
   GET_DATES_LIKES_SUCCESS,
@@ -168,7 +167,7 @@ const datesByCategoryError = (data) => ({
   payload: data,
 });
 
-// TODO: Likes
+// TODO: LIKES & DISLIKES de citas favoritas
 export function handleLikes(data) {
   return async (dispatch) => {
     //console.log(data);
@@ -182,16 +181,13 @@ export function handleLikes(data) {
   };
 }
 
-// children actions
 const handleLikesSuccess = (data) => ({
   type: DATES_LIKES_SUCCESS,
   payload: data,
 });
 
-const handleLikesError = (data) => ({});
-
 export function handleDislikes(data) {
-  console.log(data);
+  //console.log(data);
   return async (dispatch) => {
     try {
       await clientAxios.delete(`/api/dates-filter/likes/${data._id}`);
@@ -199,6 +195,7 @@ export function handleDislikes(data) {
       dispatch(handleDislikesSuccess(data));
     } catch (error) {
       console.log(error);
+      dispatch(handleDislikesError(error.response.data.msg));
     }
   };
 }
@@ -208,8 +205,12 @@ const handleDislikesSuccess = (data) => ({
   payload: data,
 });
 
-const handleDislikesError = (data) => ({});
+const handleDislikesError = (data) => ({
+  type: DATES_DISLIKES_ERROR,
+  payload: data,
+});
 
+// TODO: Obtiene las citas favoritas
 export function getDatesFavs() {
   return async (dispatch) => {
     try {

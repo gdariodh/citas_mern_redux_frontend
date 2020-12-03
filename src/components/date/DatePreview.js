@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   selectDate,
   deleteDate,
@@ -11,16 +10,15 @@ import {
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 const DatePreview = ({ date }) => {
   const dispatch = useDispatch();
-
   return (
     <>
       {date && (
         <>
-          {/** TODO: Una cita */}
+          {/** TODO: Template de la cita */}
           <div className="md:flex  md:my-4 m-4 w-full   lg:w-2/5	 h-64">
             <div className="w-full px-4 py-4 bg-white rounded-lg">
               <div className="flex items-center">
-                <h2 className="text-xl text-gray-800 font-medium mr-auto">
+                <h2 className="text-xl text-gray-800 font-medium mr-auto max-h-6 overflow-hidden">
                   {date.name}
                 </h2>
 
@@ -53,7 +51,7 @@ const DatePreview = ({ date }) => {
                   Eliminar
                 </button>
 
-              {/** TODO: date.favorite viene del backend, como boolean, el componente se vuelve a cargar por el padre ListDates
+                {/** TODO: date.favorite viene del backend, como boolean, el componente se vuelve a cargar por el padre ListDates
               que se actualiza por datesFavs que se altera cuando se da like o dislike gracias al dispatch
                */}
 
@@ -81,9 +79,13 @@ const DatePreview = ({ date }) => {
                   Editar
                 </Link>
 
-                <button className=" bg-blue-500 hover:bg-blue-600  text-gray-200 px-2 py-2 rounded-md ">
+                <Link
+                  to="/date"
+                  onClick={() => dispatch(selectDate(date))}
+                  className=" bg-blue-500 hover:bg-blue-600  text-gray-200 px-2 py-2 rounded-md "
+                >
                   Ver mas
-                </button>
+                </Link>
               </div>
             </div>
           </div>

@@ -16,13 +16,13 @@ const ListDates = () => {
   const dates = useSelector((state) => state.date.datesFavs);
   const favs = useSelector((state) => state.date.favs);
   const alertState = useSelector((state) => state.alert);
-  const { alertFav, alertMsgFav,reload } = alertState;
+  const { alertFav, alertMsgFav } = alertState;
 
   useEffect(() => {
     dispatch(getDatesFavs());
 
     // eslint-disable-next-line
-  }, [favs, alertFav,reload]);
+  }, [favs, alertFav]);
 
   return (
     <>
@@ -32,8 +32,8 @@ const ListDates = () => {
         {/** Distribucion de flex */}
         <div className="flex md:flex-row flex-col ">
           {/** Barra lateral de usuario*/}
-          <Aside />
-          <div className="w-full bg-gradient-to-r from-blue-300  via-blue-300 to-blue-400">
+          <Aside fav/>
+          <div className="w-full bg-gradient-to-t from-blue-300 to-blue-400">
             {/** Header */}
             <Header />
             <h2 className="text-white text-3xl mt-4 font-bold text-center ">

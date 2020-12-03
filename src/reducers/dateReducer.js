@@ -12,7 +12,6 @@ import {
   DATES_FILTER_SUCCESS,
   DATES_FILTER_ERROR,
   DATES_LIKES_SUCCESS,
-  DATES_LIKES_ERROR,
   DATES_DISLIKES_SUCCESS,
   DATES_DISLIKES_ERROR,
   GET_DATES_LIKES_SUCCESS,
@@ -102,6 +101,8 @@ export default function dateReducer(state = initialState, action) {
     case EDIT_DATA_ERROR:
     case DELETE_DATE_ERROR:
     case DATES_FILTER_ERROR:
+    case DATES_DISLIKES_ERROR:
+    case GET_DATES_LIKES_ERROR:
       return {
         ...state,
         dates: [],
@@ -109,6 +110,7 @@ export default function dateReducer(state = initialState, action) {
         reload: false,
         dateSelect: {},
         datesFavs: [],
+        favs:[],
         datesCategory: [],
       };
 
@@ -118,6 +120,7 @@ export default function dateReducer(state = initialState, action) {
         dates: [],
         reload: true,
         dateSelect: {},
+        datesFavs: [],
         datesFavs: [],
         datesCategory: [],
         redirect: false,
