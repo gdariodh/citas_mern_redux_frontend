@@ -28,15 +28,17 @@ const Login = () => {
   return (
     <>
       <img
+        data-cy='img-login'
         className="h-24 mx-auto mt-6 xl:mt-3 md:mt-32"
         src="https://www.flaticon.es/svg/static/icons/svg/3768/3768079.svg"
         alt="icon login"
       />
 
       <h2 className="text-center text-3xl font-bold">Log in</h2>
-      <Alert />
+      <Alert data-cy='alert'/>
       <div className="flex justify-center mt-2 container mx-auto">
         <form
+          data-cy='form'
           onSubmit={handleSubmit}
           className="bg-white w-full md:w-5/12 px-8 py-6"
         >
@@ -46,6 +48,7 @@ const Login = () => {
             </label>
             {/** TODO: el htmlFor, id y values de los inputs se llaman data porque se ingresa un correo o un usuario */}
             <input
+              data-cy='user'
               value={data}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -54,7 +57,7 @@ const Login = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-400 focus:shadow-outline"
             />
             {formik.touched.data && formik.errors.data && (
-              <div className="my-1 text-red-500  ">
+              <div data-cy='error-user' className="my-1 text-red-500  ">
                 <span className="font-semibold">{formik.errors.data}</span>
               </div>
             )}
@@ -65,6 +68,7 @@ const Login = () => {
               Password
             </label>
             <input
+              data-cy='password'
               value={password}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -73,12 +77,13 @@ const Login = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-400 focus:shadow-outline"
             />
             {formik.touched.password && formik.errors.password && (
-              <div className="my-1 text-red-500  ">
+              <div data-cy='error-password' className="my-1 text-red-500  ">
                 <span className="font-semibold">{formik.errors.password}</span>
               </div>
             )}
           </div>
           <input
+            data-cy='submit'
             type="submit"
             className="bg-blue-500 hover:bg-blue-600 cursor-pointer w-full p-3 border rounded-full focus:outline-none text-white uppercase font-bold"
             value="Log in"
