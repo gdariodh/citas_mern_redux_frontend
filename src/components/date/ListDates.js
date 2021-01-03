@@ -46,14 +46,14 @@ const ListDates = () => {
               <div className="flex flex-wrap pt-10 pb-32 md:py-0 md:justify-evenly md:px-6 animate__animated animate__fadeIn animate__fast">
                 {dates.length !== 0 ? (
                   dates.map((date, i) => (
-                    <DatePreview key={`${date._id}-${i}`} date={date} />
+                    <DatePreview data-cy='list-dates' key={`${date._id}-${i}`} date={date} />
                   ))
                 ) : (
                   <>
                     {/** TODO: Si no hay citas */}
                     <div className="flex flex-wrap w-full md:w-1/2 justify-center items-center">
                       <div className="px-10 py-20 ">
-                        <h2 className="text-white text-3xl mt-4 font-bold text-center ">
+                        <h2 data-cy='no-date' className="text-white text-3xl mt-4 font-bold text-center ">
                           No hay citas, crea una para empezar.
                         </h2>
                       </div>

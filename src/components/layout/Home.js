@@ -12,6 +12,7 @@ const Home = () => {
         {/** TODO: BANNER */}
         <Link to="/">
           <img
+            data-cy="img-home"
             className="h-48 animate__animated animate__fadeInDown"
             src="https://www.flaticon.es/svg/static/icons/svg/2026/2026519.svg"
             alt="icon home"
@@ -34,6 +35,7 @@ const Home = () => {
           </h1>
           {/** focus:outline-none es para quitar los border negros cuando le dan click al boton */}
           <button
+             data-cy="btn-signup"
             onClick={() => signUp()}
             className="w-full bg-blue-500 hover:bg-blue-600 focus:outline-none  mb-4 p-4  md:p-1 border rounded-full"
           >
@@ -41,6 +43,7 @@ const Home = () => {
           </button>
 
           <button
+            data-cy="btn-login"
             onClick={() => login()}
             className="w-full hover:bg-blue-50 p-4 border border-blue-500 focus:outline-none md:p-1	 rounded-full"
           >

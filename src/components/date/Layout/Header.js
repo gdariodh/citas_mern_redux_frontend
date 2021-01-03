@@ -23,11 +23,12 @@ const Header = () => {
 
   return (
     <>
-      <header className=" bg-white border-b md:border-l border-gray-300  p-3 flex justify-between items-center">
+      <header data-cy='header' className=" bg-white border-b md:border-l border-gray-300  p-3 flex justify-between items-center">
         <Link to="/dates">
           <span className="text-xl font-bold">Citas</span>
         </Link>
         <button
+          data-cy='logout'
           onClick={() => dispatch(logOut())}
           className="flex focus:outline-none items-center mr-4"
         >

@@ -52,6 +52,7 @@ const CreateDate = () => {
               )}
               <div className="flex justify-center container mx-auto">
                 <form
+                  data-cy="form"
                   onSubmit={handleSubmit}
                   className="w-full bg-white border  md:rounded-xl shadow-md md:flex md:justify-between p-4 md:p-6"
                 >
@@ -65,6 +66,7 @@ const CreateDate = () => {
                         Titulo
                       </label>
                       <input
+                        data-cy="name"
                         value={name}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -73,7 +75,7 @@ const CreateDate = () => {
                         className="shadow-sm appearance-none border-b-2 border-blue-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-gray-50"
                       />
                       {formik.touched.name && formik.errors.name && (
-                        <div className="my-1 text-red-500">
+                        <div data-cy="error-name" className="my-1 text-red-500">
                           <span className="font-semibold">
                             {formik.errors.name}
                           </span>
@@ -89,6 +91,7 @@ const CreateDate = () => {
                         Cliente
                       </label>
                       <input
+                        data-cy="client"
                         value={client}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -97,7 +100,7 @@ const CreateDate = () => {
                         className="shadow-sm appearance-none border-b-2 border-blue-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-gray-50"
                       />
                       {formik.touched.client && formik.errors.client && (
-                        <div className="my-1 text-red-500">
+                        <div data-cy="error-client" className="my-1 text-red-500">
                           <span className="font-semibold">
                             {formik.errors.client}
                           </span>
@@ -113,6 +116,7 @@ const CreateDate = () => {
                         Fecha
                       </label>
                       <input
+                        data-cy="date"
                         value={date}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -121,7 +125,7 @@ const CreateDate = () => {
                         className="shadow-sm appearance-none border-b-2 border-blue-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-gray-50"
                       />
                       {formik.touched.date && formik.errors.date && (
-                        <div className="my-1 text-red-500   ">
+                        <div data-cy="error-date" className="my-1 text-red-500   ">
                           <span className="font-semibold">
                             {formik.errors.date}
                           </span>
@@ -136,6 +140,7 @@ const CreateDate = () => {
                         Hora
                       </label>
                       <input
+                        data-cy="hour"
                         value={hour}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -144,7 +149,7 @@ const CreateDate = () => {
                         className="shadow-sm appearance-none border-b-2 border-blue-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-gray-50"
                       />
                       {formik.touched.hour && formik.errors.hour && (
-                        <div className="my-1 text-red-500  ">
+                        <div data-cy="error-hour" className="my-1 text-red-500  ">
                           <span className="font-semibold">
                             {formik.errors.hour}
                           </span>
@@ -163,6 +168,7 @@ const CreateDate = () => {
                         Categoria
                       </label>
                       <select
+                        data-cy="category"
                         value={category}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -179,7 +185,7 @@ const CreateDate = () => {
                         <option value="cientifico">Cientifico</option>
                       </select>
                       {formik.touched.category && formik.errors.category && (
-                        <div className="my-1 text-red-500  ">
+                        <div data-cy="error-category" className="my-1 text-red-500  ">
                           <span className="font-semibold">
                             {formik.errors.category}
                           </span>
@@ -195,6 +201,7 @@ const CreateDate = () => {
                         Descripcion
                       </label>
                       <textarea
+                        data-cy="description"
                         value={description}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -203,7 +210,7 @@ const CreateDate = () => {
                         className="shadow appearance-none border rounded  md:h-48 h-32 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-gray-50 focus:shadow-outline"
                       />
                       {formik.touched.description && formik.errors.description && (
-                        <div className="my-1 text-red-500  ">
+                        <div  data-cy="error-description" className="my-1 text-red-500  ">
                           <span className="font-semibold">
                             {formik.errors.description}
                           </span>
@@ -211,6 +218,7 @@ const CreateDate = () => {
                       )}
                     </div>
                     <input
+                      data-cy="submit"
                       type="submit"
                       className="bg-blue-500 hover:bg-blue-600 cursor-pointer w-full p-3 border rounded-full focus:outline-none text-white uppercase font-bold"
                       value="crear cita"

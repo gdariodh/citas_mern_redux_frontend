@@ -71,6 +71,7 @@ const EditDate = () => {
                         Titulo
                       </label>
                       <input
+                        data-cy="name"
                         value={name}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -95,6 +96,7 @@ const EditDate = () => {
                         Cliente
                       </label>
                       <input
+                        data-cy="client"
                         value={client}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -119,6 +121,7 @@ const EditDate = () => {
                         Fecha
                       </label>
                       <input
+                        data-cy="date"
                         value={date}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -142,6 +145,7 @@ const EditDate = () => {
                         Hora
                       </label>
                       <input
+                        data-cy="hour"
                         value={hour}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -169,6 +173,7 @@ const EditDate = () => {
                         Categoria
                       </label>
                       <select
+                        data-cy="category"
                         value={category}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -201,6 +206,7 @@ const EditDate = () => {
                         Descripcion
                       </label>
                       <textarea
+                        data-cy="description"
                         value={description}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -217,6 +223,7 @@ const EditDate = () => {
                       )}
                     </div>
                     <input
+                      data-cy="submit"
                       type="submit"
                       className="bg-blue-500 hover:bg-blue-600 cursor-pointer w-full p-3 border rounded-full focus:outline-none text-white uppercase font-bold"
                       value="editar cita"

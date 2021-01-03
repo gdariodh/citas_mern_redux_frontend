@@ -53,6 +53,7 @@ const ListDatesCategory = () => {
                   <div>
                     {/** TODO:  dispatch(getDatesByCategory(e.target.value)) lee la categoria y hace la consulta */}
                     <select
+                      data-cy='category'
                       onChange={(e) => handleChange(e)}
                       value=""
                       type="text"

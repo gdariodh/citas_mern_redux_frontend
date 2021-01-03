@@ -17,7 +17,7 @@ const DatePreview = ({ date }) => {
       {date && (
         <>
           {/** TODO: Una cita */}
-          <div className="md:flex  md:my-4 m-4 w-full   lg:w-2/5	 h-64">
+          <div data-cy='date-select' className="md:flex  md:my-4 m-4 w-full   lg:w-2/5	 h-64">
             <div className="w-full px-4 py-4 bg-white rounded-lg">
               <div className="flex items-center">
                 <h2 className="text-xl text-gray-800 font-medium mr-auto max-h-7 overflow-hidden">
@@ -59,6 +59,7 @@ const DatePreview = ({ date }) => {
                   </button>
                 ) : (
                   <button
+                    data-cy='dislike-date'
                     onClick={() => dispatch(handleDislikes(date))}
                     className="flex  focus:outline-none p-2 mr-2"
                   >

@@ -15,7 +15,7 @@ const Aside = ({ create, edit, view, fav, category }) => {
 
   return (
     <>
-      <aside className="w-full md:w-1/4 md:h-screen p-12">
+      <aside data-cy='panel' className="w-full md:w-1/4 md:h-screen p-12">
         {/**TODO: Icon y text */}
         <div className="md:fixed md:grid">
           <div className="flex flex-wrap justify-center md:grid md:mx-auto md:place-items-center">
@@ -48,7 +48,7 @@ const Aside = ({ create, edit, view, fav, category }) => {
             )}
 
             {!create && !edit && (
-              <Link to="/create-date" className="flex  focus:outline-none my-2">
+              <Link data-cy='create' to="/create-date" className="flex  focus:outline-none my-2">
                 <span className="mr-1 font-semibold text-xl">
                   Agregar una cita
                 </span>{" "}
@@ -66,7 +66,7 @@ const Aside = ({ create, edit, view, fav, category }) => {
             ) : null}
 
             {!fav && (
-              <Link to="/dates-favs" className="flex  focus:outline-none my-2">
+              <Link data-cy='favorites' to="/dates-favs" className="flex  focus:outline-none my-2">
                 <span className="mr-1 font-semibold text-xl">
                   Citas favoritas
                 </span>{" "}
@@ -76,6 +76,7 @@ const Aside = ({ create, edit, view, fav, category }) => {
 
             {!category && (
               <Link
+                data-cy='filter'
                 to="/dates-category"
                 className="flex focus:outline-none my-2"
               >
